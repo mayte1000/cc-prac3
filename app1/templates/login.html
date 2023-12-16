@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+  <script src="{% static 'js/login.js' %}"></script>
+  <div class="container mt-5">
+    <div class="container-main-login borde-imgen-logo row p-3">
+      <div class="container-principal-login col-lg-6 col-md-12 m-3">
+        <form class="form-login justify-content-center align-items-center p-3">
+          <h2 class="text-h2 text-center fw-bold mb-3">Inicio de Sesión</h2>
+          <div class="col flex-column mb-3">
+            <label for="txtusuario" class="form-label fw-bold">Usuario</label>
+            <input type="text" class="form-control shadow p-2 mb-2 bg-body-tertiary rounded" id="txtusuario"
+              placeholder="" />
+          </div>
+          <div class="col flex-column mb-3">
+            <label for="txtpassword" class="form-label fw-bold">Contraseña</label>
+            <input type="password" class="form-control shadow p-2 mb-2 bg-body-tertiary rounded" id="txtpassword"
+              placeholder="" />
+          </div>
+          <div class="col-12 flex-column mb-3">
+            <!--para que le boton se extienda -->
+            <a class="btn btn-primary btn-color fw-bold mt-3 w-100" href="/" role="button"
+              onclick="return validarCuenta()">Ingresar</a>
+
+
+          </div>
+          <div class="col-12 flex-column mb-3">
+            <!--para que le boton se extienda -->
+            <a class="button" href="/recuperarContrasenia" role="button">Olvidé mi contraseña</a> <br><br><br>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
+<br><br><br><br>
+
+{% endblock %}

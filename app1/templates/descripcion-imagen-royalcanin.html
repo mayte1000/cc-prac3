@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br><br><br><br><br><br><br>
+<!-- Contenido de la página -->
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Imagen o video de la categoría -->
+      <img src="{% static 'img/royal-canin.jpg' %}" alt="Categoría" class="img-fluid" width="500" />
+    </div>
+    <div class="col-md-6">
+      <!-- Texto descriptivo de la categoría -->
+      <h1>ROYAL CANIN</h1>
+      <p>Royal Canin Mini Adult es un alimento para perros adultos de tamaño pequeño (de 1 a 10 Kg) desde los 10 meses
+        hasta los 8 años. La L-Carnitina estimula el metabolismo de las reservas grasas. Satisface las necesidades
+        energéticas gracias al contenido adaptado en calorías ( Royal Canin es líder en el mercado mundial de alimento
+        balanceado para gatos y perros. Fundada en 1967 en Francia por un médico veterinario, Royal Canin asumió el
+        compromiso de la Nutrición Salud, con el objetivo de aportar las respuestas nutricionales más innovadoras y
+        adaptadas a las necesidades específicas de gatos y perros.
+        <br><br>
+        Beneficios:
+        <li>Ayuda a mantener un pelo brillante y una piel saludable Aminoácidos azufrados, vitamina A y ácidos grasos
+          Omega 6</li>
+        <li> Satisface el apetito caprichoso Croqueta con una textura, forma y tamaño a medida, nutrientes
+          seleccionados, aromas naturales seleccionados y una conservación perfecta</li>
+        <li> Ayuda a reducir la formación del sarro Los polifosfatos de sodio, “atrapan” el calcio presente en la
+          saliva.</li>
+      </p>
+    </div>
+  </div>
+  <!-- Formulario para agregar comentarios -->
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2>Agregar Comentario</h2>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" placeholder="" />
+        </div>
+        <div class="form-group">
+          <label for="comentario">Comentario:</label>
+          <textarea class="form-control" id="comentario" rows="4" placeholder=""></textarea>
+        </div>
+        <button type="submit" class="btn btn-info mt-2">Enviar Comentario</button>
+      </form>
+    </div>
+  </div>
+  <!-- Visualización de comentarios -->
+  <div class="row mt-4 mb-4">
+    <div class="col-md-12">
+      <h2>Comentarios</h2>
+      <ul class="list-group">
+        <!-- Comentario 1 -->
+        <li class="list-group-item">
+          <strong>Usuario 1:</strong> Excelente producto.
+        </li>
+        <!-- Comentario 2 -->
+        <li class="list-group-item">
+          <strong>Usuario 2:</strong> Muy buena calidad.
+        </li>
+        <!-- Comentario 3 -->
+        <li class="list-group-item">
+          <strong>Usuario 3:</strong> No me gustó mucho.
+        </li>
+        <!-- Comentario 4 -->
+        <li class="list-group-item">
+          <strong>Usuario 4:</strong> La relación precio-calidad, me pareció excelente.
+        </li>
+        <!-- Comentario 5 -->
+        <li class="list-group-item">
+          <strong>Usuario 5:</strong> Lo recomiendo.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<br><br><br><br><br><br><br><br><br>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+
+    var dbProductos = JSON.parse('{{ productos | escapejs }}');
+    let carrito = [];
+    const DOMitems = document.querySelector('#items');
+    const panelCarrito = document.querySelector('#carrito');
+    const txtTotalCompra = document.querySelector('#total');
+    const btnVaciarCarrito = document.querySelector('#boton-vaciar');
+    const btnPagar = document.querySelector('#boton-pagar');
+
+
+    function dibujarListaProductos() {
+      dbProductos.forEach((producto) => {
+
+        const panelProducto = document.createElement('div');
+        panelProducto.classList.add('card', 'col-sm-4');
+
+        const cuerpoPanelProducto = document.createElement('div');
+        cuerpoPanelProducto.classList.add('card-body');
+
+        const txtNombre = document.createElement('h5');
+        txtNombre.classList.add('card-title');
+        txtNombre.textContent = producto.nombre;
+
+        const imgFoto = document.createElement('img');
+        imgFoto.classList.add('img-fluid');
+        imgFoto.setAttribute('src', "/static/img/prod" + producto.id + ".jpg");
+
+        const txtPrecio = document.createElement('p');
+        txtPrecio.classList.add('card-text');
+        txtPrecio.textContent = `$${producto.precio}`;
+
+        const btnAgregar = document.createElement('button');
+        btnAgregar.classList.add('btn', 'btn-primary');
+        btnAgregar.textContent = '+';
+        btnAgregar.setAttribute('marcador', producto.id);
+        btnAgregar.addEventListener('click', agregarProductoAlCarrito);
+
+        cuerpoPanelProducto.appendChild(imgFoto);
+        cuerpoPanelProducto.appendChild(txtNombre);
+        cuerpoPanelProducto.appendChild(txtPrecio);
+        cuerpoPanelProducto.appendChild(btnAgregar);
+
+        panelProducto.appendChild(cuerpoPanelProducto);
+        items.appendChild(panelProducto);
+      });
+    }
+
+    function agregarProductoAlCarrito(evento) {
+      carrito.push(evento.target.getAttribute('marcador'))
+      dibujarListaCarrito();
+    }
+
+    function dibujarListaCarrito() {
+      panelCarrito.textContent = '';
+
+      const carritoSinDuplicados = [...new Set(carrito)];
+
+      carritoSinDuplicados.forEach((item) => {
+        const producto = dbProductos.filter((itemBaseDatos) => {
+          return itemBaseDatos.id === parseInt(item);
+        });
+
+        const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+          return itemId === item ? total += 1 : total;
+        }, 0);
+
+        const panelProductos = document.createElement('li');
+        panelProductos.classList.add('list-group-item', 'text-right', 'mx-2');
+
+        const txtCantidad = document.createElement('p');
+        txtCantidad.textContent = ` ${numeroUnidadesItem}`;
+
+        const txtNombre = document.createElement('p');
+        txtNombre.textContent = ` ${producto[0].nombre}`;
+
+        const txtPrecio = document.createElement('p');
+        txtPrecio.textContent = `$${producto[0].precio}`;
+
+        const imgFoto = document.createElement('img');
+        imgFoto.classList.add('img-fluid');
+        imgFoto.setAttribute('src', "/static/img/prod" + producto[0].id + ".jpg");
+        imgFoto.style.width = "50px";
+        imgFoto.style.height = "50px";
+
+        const btnSacarItem = document.createElement('button');
+        btnSacarItem.classList.add('btn', 'btn-danger', 'mx-5');
+        btnSacarItem.textContent = 'X';
+        btnSacarItem.style.marginLeft = '1rem';
+        btnSacarItem.dataset.item = item;
+        btnSacarItem.addEventListener('click', sacarItemCarrito);
+
+        panelProductos.appendChild(imgFoto);
+        panelProductos.appendChild(txtNombre);
+        panelProductos.appendChild(txtCantidad);
+        panelProductos.appendChild(txtPrecio);
+        panelProductos.appendChild(btnSacarItem);
+        panelCarrito.appendChild(panelProductos);
+      });
+
+      txtTotalCompra.textContent = calcularTotal();
+    }
+
+    function sacarItemCarrito(evento) {
+      const id = evento.target.dataset.item;
+
+      carrito = carrito.filter((carritoId) => {
+        return carritoId !== id;
+      });
+
+      dibujarListaCarrito();
+    }
+
+    function calcularTotal() {
+      return carrito.reduce((total, item) => {
+        const miItem = dbProductos.filter((itemBaseDatos) => {
+          return itemBaseDatos.id === parseInt(item);
+        });
+
+        return total + miItem[0].precio;
+      }, 0).toFixed(2);
+    }
+
+    function vaciarCarrito() {
+      if (carrito.length == 0) {
+        alert("No hay productos en la lista");
+        return;
+      }
+
+      carrito = [];
+      dibujarListaCarrito();
+    }
+
+    function pagar() {
+      if (carrito.length == 0) {
+        alert("No hay productos en la lista");
+        return;
+      }
+
+    }
+
+    btnVaciarCarrito.addEventListener('click', vaciarCarrito);
+    btnPagar.addEventListener('click', pagar);
+
+    dibujarListaProductos();
+    dibujarListaCarrito();
+  });
+</script>
+    
+    <main id="items" class="col-sm-8 row">
+      <link rel="stylesheet" href="{% static 'css/carrito.css' %}" />
+      <div class="flex-container"></div>
+      <div class="flex-item-left">
+        <h2>Productos</h2>
+      </div>
+      <div class="flex-item-right">
+        <h2>Carrito</h2>
+        
+      </div>
+
+      
+      <ul id="carrito" class="list-group"></ul>
+      <hr>
+      <p class="text-right">Total: $<span id="total"></span></p>
+      <button id="boton-vaciar" class="btn btn-danger">Vaciar</button>
+      <button id="boton-pagar" class="btn btn-success btn-block">Pagar</button>
+
+  </div>
+
+  </main>
+
+  {% endblock %}

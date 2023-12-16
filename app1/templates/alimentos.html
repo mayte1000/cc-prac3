@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <link rel="stylesheet" href="{% static 'css/galeria.css' %}" />
+    <h1 class="titulo">ALIMENTOS - VENTA SOLO EN EL LOCAL</h1>
+    <div class="contenedor">
+        <div class="libro-galeria">
+            <img src="{% static 'img/royal-canin.jpg' %}" style="max-width: 48%" />
+            <a class="link1" href="/descripcionRoyalcanin">
+                <p>ROYAL CANIN</p>
+            </a>
+        </div>
+        <div class="libro-galeria">
+            <img src="{% static 'img/royal-canin-regular-fit.jpg' %}" style="max-width: 50%" />
+            <a class="link1" href="/descripcionRoyalRegular">
+                <p>ROYAL CANIN - REGULAR FIT </p>
+            </a>
+        </div>
+        <div class="libro-galeria">
+            <img src="{% static 'img/purina-proplan.jpg' %}" style="max-width: 50%" />
+            <a class="link1" href="/descripcionPurinaProplan">
+                <p>PURINA PRO PLAN</p>
+            </a>
+        </div>
+        <div class="libro-galeria">
+            <img src="{% static 'img/balanced.jpg' %}" style="max-width: 50%" />
+            <a class="link1" href="/descripcionBalanced">
+                <p>BALANCED SENIOR CAT</p>
+            </a>
+        </div>
+        <div class="libro-galeria">
+            <img src="{% static 'img/EUKANUBA.jpg' %}" style="max-width: 50%" />
+            <a class="link1" href="/descripcionEukanuba">
+                <p>EUKANUBA</p>
+            </a>
+        </div>
+        <div class="libro-galeria">
+            <img src="{% static 'img/excellent.jpg' %}" style="max-width: 50%" />
+            <a class="link1" href="/descripcionExcellent">
+                <p>EXCELLENT</p>
+            </a>
+        </div>
+        <div class="libro-galeria">
+            <img src="{% static 'img/oldprince.jpg' %}" style="max-width: 50%" />
+            <a class="link1" href="/descripcionOldprince">
+                <p>OLD PRINCE</p>
+            </a>
+        </div>
+        <div class="libro-galeria">
+            <img src="{% static 'img/infinity.jpg' %}" style="max-width: 50%" />
+            <a class="link1" href="/descripcionInfinity">
+                <p>INFINITY</p>
+            </a>
+        </div>
+    </div>
+</main>
+{% endblock %}

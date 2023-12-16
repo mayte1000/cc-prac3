@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <script src="{% static 'js/contacto.js' %}"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <div class="container-general">
+        <div class="container d-flex-column flex-wrap mt-3 align-items-center">
+            <div class="mapa col align-self-center ">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d271054.0112426608!2d-65.27444415704642!3d-26.796013319115012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94223792d6c56903%3A0xf88d5b92b5c56527!2sSan%20Miguel%20de%20Tucum%C3%A1n%2C%20Tucum%C3%A1n!5e0!3m2!1ses-419!2sar!4v1696603439864!5m2!1ses-419!2sar"
+                    width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="container-contacto d-lg-flex">
+                <div class="container-datos col-lg-7 flex-wrap">
+                    <div class="col-9 mb-3 texto-contacto">
+                        <h2 class="text-h2 fw-bold">Contacto</h2>
+                        <p>Deje su mensaje. Nos comunicaremos con usted</p>
+                    </div>
+                    <div class="form container flex-column justify-content-center borde-imgen-logo p-5 mb-3">
+                        <div class="col-10 mb-2">
+                            <label for="textnombre" class="form-label fw-bold">Nombre y Apellido</label>
+                            <input type="text" class="form-control shadow p-2 mb-2 bg-body-tertiary rounded"
+                                id="textnombre" placeholder="">
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label for="textemail" class="form-label fw-bold">Email</label>
+                            <input type="email" class="form-control shadow p-2 mb-2 bg-body-tertiary rounded"
+                                id="textemail" placeholder="">
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label for="texttelefono" class="form-label fw-bold">Telefono</label>
+                            <input type="email" class="form-control shadow p-2 mb-2 bg-body-tertiary rounded"
+                                id="texttelefono" placeholder="">
+                        </div>
+                        <div class="col-10 mb-2">
+                            <label for="textcomentario" class="form-label fw-bold">Duda, consulta o comentario</label>
+                            <textarea class="form-control shadow p-2 mb-2 bg-body-tertiary rounded" id="textcomentario"
+                                rows="3"></textarea>
+                        </div>
+                        <div class=" col-2">
+                            <a class="btn btn-primary btn-color fw-bold mt-3 mb-2 align-items-center w-100"
+                                onclick="return validarForm()" href="/">Enviar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class=" container cards-datos col-lg-3 pt-5">
+                    <div
+                        class=" card-contacto row-3 d-flex mt-3 p-3 shadow p-2 mt-5 bg-body-tertiary rounded overflow-hidden">
+                        <img class="img-fluid col-1 m-2" src="{% static 'img/img-contacto/shop-solid.svg' %}"></img>
+                        <p>Av. Landajo 350 - Depto Cruz Alta - Tucumán - Argentina</p>
+                    </div>
+                    <div class="card-contacto row-3  d-flex mt-3 p-3 shadow p-2  mt-5 mb-2 bg-body-tertiary rounded">
+                        <img class="img-fluid col-1 m-2" src="{% static 'img/img-contacto/phone-solid.svg' %}"></img>
+                        <p>Tel.: 3814922047 - 3814138041</p>
+                    </div>
+                    <div class=" card-contacto row-3 d-flex p-3 shadow p-2 mt-5 mb-2 bg-body-tertiary rounded">
+                        <img class="img-fluid col-1 m-2" src="{% static 'img/img-contacto/at-solid.svg' %}"></img>
+                        <p>casa-campo@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

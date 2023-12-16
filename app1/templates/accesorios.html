@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+  <link rel="stylesheet" href="{% static 'css/galeria.css' %}" />
+  <h1 class="titulo">ACCESORIOS</h1>
+  <h4 class="subtitulo">(Las promociones solo se venden en el local)</h4><br><br>
+  <div class="contenedor">
+    <div class="libro-galeria">
+      <img src="{% static 'img/img-promociones/transportadora.png' %}" style="max-width: 48%" />
+      </a>
+    </div>
+    <div class="libro-galeria">
+      <img src="{% static 'img/img-promociones/mordillo.png' %}" style="max-width: 50%" />
+      </a>
+    </div>
+    <div class="libro-galeria">
+      <img src="{% static 'img/img-promociones/cuchita-perro.png' %}" style="max-width: 50%" />
+      </a>
+    </div>
+    <div class="libro-galeria">
+      <img src="{% static 'img/img-promociones/capita navideña.png' %}" style="max-width: 50%" />
+      </a>
+    </div>
+    <div class="libro-galeria">
+      <img src="{% static 'img/img-promociones/cepillo.png' %}" style="max-width: 50%" />
+      </a>
+    </div>
+    <div class="libro-galeria">
+      <img src="{% static 'img/img-promociones/comedero plastico.png' %}" style="max-width: 50%" />
+      </a>
+    </div>
+    <div class="libro-galeria">
+      <img src="{% static 'img/img-promociones/hueso.png' %}" style="max-width: 50%" />
+      </a>
+    </div>
+    <div class="libro-galeria">
+      <img src="{% static 'img/img-promociones/pelota enlazada.png' %}" style="max-width: 50%" />
+      </a>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

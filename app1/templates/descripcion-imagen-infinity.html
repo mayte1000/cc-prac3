@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<br><br><br><br><br><br><br>
+
+<!-- Contenido de la página -->
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- Imagen o video de la categoría -->
+      <img src="{% static 'img/infinity.jpg' %}" alt="Categoría" class="img-fluid" width="500" />
+    </div>
+    <div class="col-md-6">
+      <!-- Texto descriptivo de la categoría -->
+      <h1>INFINITY</h1>
+      <p>El Alimento Infinity para Perro Adulto Raza Pequeña aporta el 100% de los nutrientes necesarios para que tu
+        perro goce de una vida sana y placentera. Su fórmula incluye, proteínas de alta digestibilidad, grasas de alto
+        valor biológico, hidratos de carbono perfectamente dextrinizados, vitaminas, minerales, ?bras adecuadas para
+        una mejor salud intestinal y una excelente palatabilidad.</p>
+      <br><br>
+      <p>Beneficios:</p>
+      <li>Está formulado contemplando los niveles y per?les nutricionales establecidos por AAFCO (Asociación Americana
+        de O?ciales en Control de Alimentos, asegurando que tu perro tenga una vida saludable y con los niveles
+        correctos de energía.</li>
+      <li>Contiene semillas de Chía, fuente natural de Omega 3 sin procesos industriales, que contribuye a la salud de
+        la piel y un correcto metabolismo de las grasas.</li>
+      <li>Contiene ?bras solubles que mejoran el funcionamiento intestinal.</li>
+      <li>La incorporación de sustancias vegetales naturales (Yucca Schidigera) reduce olores en la orina y en las
+        heces de manera signi?cativa.</li>
+      <li>El tamaño, la forma y la textura del alimento han sido estudiados para adaptarse perfectamente a los dientes
+        y mandíbulas de los perros de razas pequeñas.</li>
+      </p>
+    </div>
+  </div>
+  <!-- Formulario para agregar comentarios -->
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <h2>Agregar Comentario</h2>
+      <form>
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" placeholder="" />
+        </div>
+        <div class="form-group">
+          <label for="comentario">Comentario:</label>
+          <textarea class="form-control" id="comentario" rows="4" placeholder=""></textarea>
+        </div>
+        <button type="submit" class="btn btn-info mt-2">Enviar Comentario</button>
+      </form>
+    </div>
+  </div>
+  <!-- Visualización de comentarios -->
+  <div class="row mt-4 mb-4">
+    <div class="col-md-12">
+      <h2>Comentarios</h2>
+      <ul class="list-group">
+        <!-- Comentario 1 -->
+        <li class="list-group-item">
+          <strong>Usuario 1:</strong> A mi mascota le encanta!
+        </li>
+        <!-- Comentario 2 -->
+        <li class="list-group-item">
+          <strong>Usuario 2:</strong> Muy buena calidad.
+        </li>
+        <!-- Comentario 3 -->
+        <li class="list-group-item">
+          <strong>Usuario 3:</strong> No me gustó mucho, esperaba algo diferente.
+        </li>
+        <!-- Comentario 4 -->
+        <li class="list-group-item">
+          <strong>Usuario 4:</strong> La relación precio-calidad, me pareció excelente.
+        </li>
+        <!-- Comentario 5 -->
+        <li class="list-group-item">
+          <strong>Usuario 5:</strong> Lo recomiendo.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

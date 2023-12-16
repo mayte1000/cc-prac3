@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <link rel="stylesheet" href="{% static 'css/acerca-de-nosotros.css' %}"
+    <h1 class="titulo">NUESTRO EQUIPO</h1>
+    <h2 class="introduccion">Este equipo está formado por un grupo de cinco estudiantes que compartieron tiempo y
+        conocimientos en la realización de tareas y esfuerzos para el desarrollo de la primera página web realizada en
+        equipo.</h2>
+    <div class="tabla mt-6">
+        <div class="cir1">
+            <img class="circular1" src="{% static 'img/avatar1.jpg' %}" style="max-width: 25%" />
+            <p>FACUNDO DI POMPO</p>
+        </div>
+        <div class="cir2">
+            <img class="circular2" src="{% static 'img/avatar3.jpg' %}" style="max-width: 25%" />
+            <p>REMIGIO GUERRERO</p>
+        </div>
+        <div class="cir3">
+            <img class="circular3" src="{% static 'img/avatar5.jpg' %}" style="max-width: 25%" />
+            <p>MARIA CELESTE QUIROGA HAMOUD</p>
+        </div>
+        <div class="cir4">
+            <img class="circular4" src="{% static 'img/avatar4.jpg' %}" style="max-width: 25%" />
+            <p>MARTA VARGAS</p>
+        </div>
+        <div class="cir5">
+            <img class="circular5" src="{% static 'img/avatar2.jpg' %}" style="max-width: 25%" />
+            <p>MARIA CELESTE VERDUZ</p>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
